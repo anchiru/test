@@ -1,0 +1,25 @@
+name: Test job
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+        default: 'env_name'
+      version:
+        description: 'Commit/tag/branch'
+        required: false
+
+jobs:
+  job1:
+    name: test1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.version }}
+          fetch-depth: 0
+      - name: echo
+        run: echo test
