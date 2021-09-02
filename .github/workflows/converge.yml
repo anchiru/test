@@ -1,4 +1,4 @@
-name: Converge
+name: werf
 
 on:
   workflow_dispatch:
@@ -20,8 +20,8 @@ on:
         required: false
 
 jobs:
-  converge:
-    name: Converge
+  werf:
+    name: Werf
     runs-on: ubuntu-latest
     env:
       WERF_REPO: "anchiru/test"
