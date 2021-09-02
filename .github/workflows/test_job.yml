@@ -15,6 +15,8 @@ jobs:
   job1:
     name: test2
     runs-on: ubuntu-latest
+    env:
+      TEST: test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -22,4 +24,7 @@ jobs:
           ref: ${{ github.event.inputs.version }}
           fetch-depth: 0
       - name: echo
-        run: echo ${{ github.event.inputs.environment }}
+        run: |
+          echo ${{ github.event.inputs.environment }}
+          echo $TEST
+          echo ${{ github.event.inputs.version }}
