@@ -1,4 +1,4 @@
-name: werfff
+name: werf2
 
 on:
   workflow_dispatch:
